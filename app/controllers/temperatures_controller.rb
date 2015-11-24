@@ -1,6 +1,11 @@
 class TemperaturesController < ApplicationController
   protect_from_forgery except: [:create]
 
+  def index
+    loaded_temp = Temperature.all.order('created_at DESC').limit(100)
+    @temperatures = TemperatureDecorator.decorate_collection(loaded_temp)
+  end
+
   def create
     temp = Temperature.new(temp_params)
 
