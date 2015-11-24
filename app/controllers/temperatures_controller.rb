@@ -1,9 +1,14 @@
 class TemperaturesController < ApplicationController
-  protect_from_forgery except: [:create]
+  protect_from_forgery except: [:latest, :create]
 
   def index
     loaded_temp = Temperature.all.order('created_at DESC').limit(100)
     @temperatures = TemperatureDecorator.decorate_collection(loaded_temp)
+  end
+
+  def latest
+    temp = Temperature.last
+    render json: TemperatureDecorator.decorate(temp).to_json
   end
 
   def create

@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  resources 'temperatures'
+  root 'temperatures#index'
+
+  resources 'temperatures', only: [:index, :create]
+
+  match '/temperatures/latest', to: 'temperatures#latest', via: 'get'
 end
