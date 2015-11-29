@@ -2,7 +2,7 @@ class TemperaturesController < ApplicationController
   protect_from_forgery except: [:latest, :create]
 
   def index
-    loaded_temp = Temperature.all.order('created_at DESC').limit(100)
+    loaded_temp = Temperature.all.order('created_at DESC').limit(200)
     @temperatures = TemperatureDecorator.decorate_collection(loaded_temp)
   end
 
@@ -24,6 +24,6 @@ class TemperaturesController < ApplicationController
   private
 
   def temp_params
-    params.require(:temperature).permit(:temp)
+    params.require(:temperature).permit(:room_temp, :outdoor_temp, :different)
   end
 end

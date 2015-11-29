@@ -2,7 +2,9 @@
   <thead>
     <tr>
       <th>日時</th>
-      <th>気温</th>
+      <th>室温</th>
+      <th>外気温</th>
+      <th>温度差</th>
     </tr>
   </thead>
 
@@ -10,7 +12,9 @@
     <% @temperatures.each do |temperature| %>
       <tr>
         <td><%= temperature.updated_at %></td>
-        <td><%= temperature.temp %></td>
+        <td><%= temperature.room_temp %></td>
+        <td><%= temperature.outdoor_temp %></td>
+        <td><%= temperature.different %></td>
       </tr>
     <% end %>
   </tbody>

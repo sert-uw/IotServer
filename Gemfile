@@ -11,6 +11,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'unicorn'
 gem 'draper', '~> 1.3'
+gem 'dotenv-rails'
+gem 'rpush'
 
 group :development, :test do
   gem 'byebug'
