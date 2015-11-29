@@ -18,7 +18,7 @@ class TemperaturesController < ApplicationController
       notif = Rpush::Gcm::Notification.new
       notif.app = Rpush::Gcm::App.find_by_name("iotandroid")
       notif.registration_ids = Gcm.all_registration_id
-      notif.data = TemperatureDecorator.decorate(temp).to_json
+      notif.data = JSON.parse(TemperatureDecorator.decorate(temp).to_json)
       notif.save!
 
       render status: 200, json: { 'message': 'OK' }
