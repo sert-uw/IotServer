@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
+worker_processes Integer(ENV["WEB_CONCURRENCY"] || 1)
 timeout 15
 preload_app true  # 更新時ダウンタイム無し
 
