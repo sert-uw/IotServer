@@ -15,6 +15,7 @@ gem 'draper', '~> 1.3'
 gem 'dotenv-rails'
 gem 'rpush'
 gem 'unicorn-worker-killer'
+gem 'seed-fu'
 
 group :development, :test do
   gem 'byebug'

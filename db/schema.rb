@@ -48,29 +48,29 @@ ActiveRecord::Schema.define(version: 20151129153802) do
   create_table "rpush_notifications", force: :cascade do |t|
     t.integer  "badge",             limit: 4
     t.string   "device_token",      limit: 64
-    t.string   "sound",             limit: 255,   default: "default"
+    t.string   "sound",             limit: 255,      default: "default"
     t.string   "alert",             limit: 255
     t.text     "data",              limit: 65535
-    t.integer  "expiry",            limit: 4,     default: 86400
-    t.boolean  "delivered",                       default: false,     null: false
+    t.integer  "expiry",            limit: 4,        default: 86400
+    t.boolean  "delivered",                          default: false,     null: false
     t.datetime "delivered_at"
-    t.boolean  "failed",                          default: false,     null: false
+    t.boolean  "failed",                             default: false,     null: false
     t.datetime "failed_at"
     t.integer  "error_code",        limit: 4
     t.text     "error_description", limit: 65535
     t.datetime "deliver_after"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "alert_is_json",                   default: false
-    t.string   "type",              limit: 255,                       null: false
+    t.boolean  "alert_is_json",                      default: false
+    t.string   "type",              limit: 255,                          null: false
     t.string   "collapse_key",      limit: 255
-    t.boolean  "delay_while_idle",                default: false,     null: false
-    t.text     "registration_ids",  limit: 65535
-    t.integer  "app_id",            limit: 4,                         null: false
-    t.integer  "retries",           limit: 4,     default: 0
+    t.boolean  "delay_while_idle",                   default: false,     null: false
+    t.text     "registration_ids",  limit: 16777215
+    t.integer  "app_id",            limit: 4,                            null: false
+    t.integer  "retries",           limit: 4,        default: 0
     t.string   "uri",               limit: 255
     t.datetime "fail_after"
-    t.boolean  "processing",                      default: false,     null: false
+    t.boolean  "processing",                         default: false,     null: false
     t.integer  "priority",          limit: 4
     t.text     "url_args",          limit: 65535
     t.string   "category",          limit: 255
